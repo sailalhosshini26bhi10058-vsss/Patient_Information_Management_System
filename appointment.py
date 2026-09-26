@@ -36,7 +36,7 @@ def book_appointment():
         print("Error!: Doctor ID not found.")
         return
 
-    date = input("Enter date (YYYY-MM-DD): ")
+    date = input("Enter date (DD-MM-YYYY): ")
 
     time = input(f"Enter chosen time slot exactly as shown-{time_slots}: ")
 

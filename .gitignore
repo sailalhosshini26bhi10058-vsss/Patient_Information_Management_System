@@ -1,0 +1,9 @@
+# Byte-compiled / optimized / DLL files
+pycache/
+*.py[cod]
+*$py.class
+
+# Environment files (if you ever use them)
+.env
+venv/
+.venv/

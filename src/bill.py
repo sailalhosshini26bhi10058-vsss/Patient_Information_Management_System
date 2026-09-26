@@ -32,7 +32,7 @@ def generate_bill():
     bill_id = "B" + str(bill_counter).zfill(3)
     bill_counter += 1
 
-    bills_dict[bill_id] = {"patient_id": patient_id, "consultation_fee": consultation_fee, "medicine_fee": medicine_fee,"discount": discount,"total": total}
+    bills_dict[bill_id] = {"patient_id": patient_id, "consultation_fee": consultation_fee, "medicine_fee": medicine_fee,"discount": discount,"test_fee":test_fee,total": total}
 
     print(f"\nBill generated. Bill ID: {bill_id}")
 

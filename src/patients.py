@@ -59,7 +59,7 @@ def delete_patient():
         print(f"Patient with ID {p_id} has been deleted.")
 
         if p_id in appointment_list:
-            del appointment_list[p_id]
+            del appointment_list["patient_id"]==p_id
             print(f"All appointments for patient with ID {p_id} has been deleted.")
         else:
             print(f"Patient with ID {p_id} has been deleted. No active appointments found for this patient.")

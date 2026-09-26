@@ -1,7 +1,7 @@
-import src.bill as bill
-import src.patients as patients
-import src.doctors as doctors
-import src.appointment as appointment
+from src import bill
+from src import patients
+from src import doctors
+from src import appointment
 
 # ********** MAIN MENU **********
 

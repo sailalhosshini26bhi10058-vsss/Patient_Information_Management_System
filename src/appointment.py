@@ -1,3 +1,4 @@
+#PATIENT MANAGEMENT SYSTEM
 
 time_slots = ("09:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "06:00 PM")
 def show_time_slots():
@@ -6,14 +7,14 @@ def show_time_slots():
     for slot in time_slots:
         print("Timing- ", slot)
 
-import src.patients as patients
-import src.doctors as doctors
+from src import patients
+from src import doctors
 
 patients_dict = patients.patients_dict
 doctors_dict = doctors.doctors_dict
 
 
-appointment_list=[]
+appointment_list = []
 booked_slots = set()
 appointment_counter = 1  # Counter for appointment ID generation
 
@@ -36,7 +37,15 @@ def book_appointment():
         print("Error!: Doctor ID not found.")
         return
 
+    def check_date(date):
+        if len(date) != 10 or date[2] != '-' or date[5] != '-':
+            print("Error!: Invalid date format. Please enter date in DD-MM-YYYY format.")
+            return False
+        return True
+
     date = input("Enter date (DD-MM-YYYY): ")
+    if not check_date(date):
+        return
 
     time = input(f"Enter chosen time slot exactly as shown-{time_slots}: ")
 

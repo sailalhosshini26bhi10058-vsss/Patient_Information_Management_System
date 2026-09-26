@@ -1,16 +1,49 @@
-#HOSPITAL MANAGEMENT SYSTEM
+#PATIENT MANAGEMENT SYSTEM
 
 patients_dict={}                 #Empty Dictionary
 pat_count=1                             #Counter for patient ID generation
-
 def new_patient():                                    #To input new patient info
     global patients_dict, pat_count
 
     print("\n** Add New Patient **")
-    name = input("Enter patient name: ")
-    age = input("Enter age: ")
-    gender = input("Enter gender: ")
-    number = input("Enter phone number: ")
+
+    while True:
+        try:
+            name = input("Enter patient name: ")
+            if name:
+                break
+            print("Name cannot be empty. Please enter a valid name.")
+        except ValueError as e:
+            print(f"Invalid input! {e}")
+
+
+
+    while True:
+        try:
+            age = int(input("Enter age: "))
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid integer for age.")
+
+
+    while True:
+        try:
+            gender = input("Enter gender: ")
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid integer for age.")
+       
+    while True:
+        try:
+            number = int(input("Enter phone number: "))
+            if len(str(number)) == 10:
+                break
+            else:
+                print("Invalid input! Please enter a valid 10 digits for phone number.")
+        except ValueError:
+            print("Invalid input! Please enter a valid integer for phone number.")
+
+
     history = input("Enter medical history (or 'None'): ")
 
      # ID generation
@@ -42,8 +75,8 @@ def view_patients():
         print(f"ID: {p_id} | Name: {p['name']} | Age: {p['age']} | Gender: {p['gender']} | Phone: {p['phone no.']} | History: {p['medical_history']}")
         print("Patient added successfully. Patient ID: ",p_id)
 
-
-
+from src import appointment
+appointment_list = appointment.appointment_list
 
 #To delete patient record
 def delete_patient():
@@ -59,10 +92,7 @@ def delete_patient():
         print(f"Patient with ID {p_id} has been deleted.")
 
         if p_id in appointment_list:
-            del appointment_list["patient_id"]==p_id
-            print(f"All appointments for patient with ID {p_id} has been deleted.")
-        else:
-            print(f"Patient with ID {p_id} has been deleted. No active appointments found for this patient.")
+            del appointment_list[p_id]
 
     else:
         print("Patient ID not found.")

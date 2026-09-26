@@ -1,5 +1,7 @@
-import src.patients as patients
-import src.doctors as doctors
+#PATIENT MANAGEMENT SYSTEM
+
+from src import patients
+from src import doctors
 
 patients_dict = patients.patients_dict
 doctors_dict = doctors.doctors_dict
@@ -23,16 +25,31 @@ def generate_bill():
         return
 
     consultation_fee =float(doctors_dict[doc_id]["consultation_fee"])
-    medicine_fee = float(input("Enter medicine fee: "))
-    discount = float(input("Enter discount (0 if none): "))
-    test_fee = float(input("Enter test fee (0 if none): "))
+
+    try:
+        medicine_fee = float(input("Enter medicine fee: "))
+    except ValueError:
+        print("Invalid amount!")
+        return
+    
+    try:
+        discount = float(input("Enter discount (0 if none): "))
+    except ValueError:
+        print("Invalid amount!")
+        return
+
+    try:
+        test_fee = float(input("Enter test fee (0 if none): "))
+    except ValueError:
+        print("Invalid amount!")
+        return
 
     total = consultation_fee + medicine_fee + test_fee - discount
 
     bill_id = "B" + str(bill_counter).zfill(3)
     bill_counter += 1
 
-    bills_dict[bill_id] = {"patient_id": patient_id, "consultation_fee": consultation_fee, "medicine_fee": medicine_fee,"discount": discount,"test_fee":test_fee,total": total}
+    bills_dict[bill_id] = {"patient_id": patient_id, "consultation_fee": consultation_fee, "medicine_fee": medicine_fee, "discount": discount, "test_fee": test_fee, "total": total}
 
     print(f"\nBill generated. Bill ID: {bill_id}")
 

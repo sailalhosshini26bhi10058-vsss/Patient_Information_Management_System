@@ -7,7 +7,7 @@ accidentally double-book a doctor, and error-prone when calculating bills by
 hand.
 
 This project addresses that problem by building a simple, menu-driven
-**Clinic Management System** in Python. It gives a receptionist or admin
+**Patient Information Management System** in Python. It gives a receptionist or admin
 staff member a single program to register patients and doctors, schedule and
 manage appointments, and generate accurate bills —
 without needing a database server or any external software.
@@ -47,3 +47,24 @@ production software.
 3. **Appointment Scheduling** — book appointments against a fixed set of time slots, with built-in double-booking prevention
 4. **Appointment Handling** — view all appointments and cancel existing ones
 5. **Billing** — generate an itemized bill (consultation, medicine, tests, discount) and review past bills
+
+
+## Non Functional-Requirements
+
+1. Usability
+-Simple menu-driven interface.
+-Clear prompts and error messages.
+-Suitable for beginner-level clinic administration.
+
+2. Reliability
+-Prevents appointment double-booking.
+-Validates patient and doctor IDs.
+-Handles invalid user input without crashing.
+
+3. Performance
+-Uses dictionaries and sets for fast record lookup.
+-Suitable for small clinic datasets.
+
+4. Maintainability
+-Patient, doctor, appointment, and billing functionality are separated into modules.
+-Modular structure makes future modifications easier.

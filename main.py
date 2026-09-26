@@ -56,7 +56,7 @@ def main_menu():         # WHILE LOOP: Runs continuously until an option is chos
             print("Exiting program. Goodbye!")
             break # break-> Exits the loop and ends the program
         else:
-            print("Invalid selection! Please enter a number between 0 and 9.")
+            print("Invalid selection! Please enter a number between 0 and 10.")
 
 
 # ********** PROGRAM START **********

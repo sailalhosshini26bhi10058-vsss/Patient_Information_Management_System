@@ -1,5 +1,5 @@
-import patients
-import doctors
+import src.patients as patients
+import src.doctors as doctors
 
 patients_dict = patients.patients_dict
 doctors_dict = doctors.doctors_dict

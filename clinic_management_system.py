@@ -1,7 +1,7 @@
-import bill
-import patients
-import doctors
-import appointment
+import src.bill as bill
+import src.patients as patients
+import src.doctors as doctors
+import src.appointment as appointment
 
 # ********** MAIN MENU **********
 
@@ -16,7 +16,7 @@ def main_menu():         # WHILE LOOP: Runs continuously until an option is chos
     global bills_dict
 
     while True:
-        print("\n===== HOSPITAL MANAGEMENT SYSTEM =====")
+        print("\n<<<<<<<< HOSPITAL MANAGEMENT SYSTEM >>>>>>>>")
         print("1. Add Patient")
         print("2. View Patients")
         print("3. Add Doctor")

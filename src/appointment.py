@@ -6,8 +6,8 @@ def show_time_slots():
     for slot in time_slots:
         print("Timing- ", slot)
 
-import patients
-import doctors
+import src.patients as patients
+import src.doctors as doctors
 
 patients_dict = patients.patients_dict
 doctors_dict = doctors.doctors_dict

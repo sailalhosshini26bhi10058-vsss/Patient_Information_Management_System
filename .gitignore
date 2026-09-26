@@ -6,4 +6,4 @@ pycache/
 # Environment files (if you ever use them)
 .env
 venv/
-.venv/
+.venv/sk

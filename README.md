@@ -27,21 +27,21 @@ without needing a database server or any external software.
 
 1.	To manage patient records by allowing users to add, view, search, update, and delete patient information.
 2.	To manage doctor records by maintaining information such as doctor ID, name, specialization, and consultation fee.
-3.	To manage appointments by allowing users to book, view, search, and cancel appointments while checking doctor availability.
-4.	To automate basic billing by calculating consultation, medicine, and test charges and applying applicable discounts.
-5.	To provide basic reports such as the number of registered patients, doctors, appointments, and total revenue.
-6.	To reduce data-entry errors through input validation and appropriate error-handling mechanisms.
-7.	To organize data efficiently using Python data structures such as lists, tuples, and dictionaries.
-8.	To apply Object-Oriented Programming concepts by representing entities such as patients, doctors, appointments, and bills as Python classes and objects.
-9.	To demonstrate modular programming by separating different functionalities into appropriate Python modules and packages.
-10.	To develop a maintainable and structured application that follows proper program organization and can be tested and improved easily.
-11.	To apply the Python concepts learned in the course—including operators, conditional statements, loops, functions, modules, packages, data structures, and OOP—to a practical problem.
+3. To provide an appointment booking system with predefined time slots.
+4.	To prevent double booking of a doctor at the same date and time.
+5. To allow appointments to be cancelled and re-booked.
+6. To generate bills using consultation, medicine, test and discount amounts.
+7. To provide input validation and error handling.
+8. To demonstrate the use of Python data structures and control statements.
+9. To organize the program into separate modules for better maintainability.
+10.To maintain the project using Git and GitHub.
+
 
 
 **Out of scope:** the project does not include persistent storage (all data
 is kept in memory and is lost when the program closes), a graphical user
 interface, multi-user access, user login/authentication, or integration with
-real hospital systems (e.g. insurance, pharmacy, or lab equipment). Walk-in patients, searching pateints and doctors, editing their details, etc cannot be done using this program. It is
+real hospital systems (e.g. insurance, pharmacy, or lab equipment). Walk-in patients, searching patients and doctors, editing their details, etc cannot be done using this program. It is
 built as a learning project to demonstrate core programming concepts, not as
 production software.
 
@@ -92,7 +92,33 @@ The system sall direct, handle, and log errors arising from any of the operation
 
 
 
-
+                                                            ┌─────────────────────┐
+                                                            │        USER         │
+                                                            └──────────┬──────────┘
+                                                                       │
+                                                                       ▼
+                                                            ┌─────────────────────┐
+                                                            │      main.py        │
+                                                            │     Main Menu       │
+                                                            └──────────┬──────────┘
+                                                                       │
+                        ┌──────────────────────────────────────────────┼──────────────────────────────────────────┐
+                        │                                              │                                          │
+                        ▼                                              ▼                                          ▼
+               ┌──────────────┐                                 ┌──────────────┐                          ┌────────────────┐
+               │  patients.py │                                 │  doctors.py  │                          │ appointment.py │
+               │    Patient   │                                 │    Doctor    │                          │ Appointments   │
+               │  Management  │                                 │  Management  │                          │  Management    │
+               └──────────────┘                                 └──────────────┘                          └────────────────┘
+                       │                                               │                                           │
+                       │                                               │                                           │
+                       └───────────────────────────────────────────────┼───────────────────────────────────────────┘
+                                                                       │
+                                                                       ▼
+                                                                ┌──────────────┐
+                                                                │    bill.py   │
+                                                                │    Billing   │
+                                                                └──────────────┘
 
 
 ## Technologies / Tools Used
@@ -161,6 +187,61 @@ confirm the program's error messages appear instead of the program crashing.
 
 ## Limitations
 
+1. **Command-Line Interface Only**
+ The system operates through a text-based interface, which may not be as user-friendly as a graphical application.
+2. **Data Is Not Permanently Stored**
+ Patient, doctor, appointment, and billing records are stored in Python data structures during program execution. The data is lost when the program is closed.
+3. **Limited Date Validation**
+ The appointment system checks the DD-MM-YYYY format but does not verify whether the entered date is an actual calendar date.
+4. **Fixed Appointment Time Slots**
+ The system provides only predefined time slots. Users cannot add or customize available timings.
+5. **No User Authentication**
+ There is no login system or role-based access for administrators, doctors, or staff.
+6. **Basic Search and Management**
+ The system does not provide advanced searching, filtering, or sorting of patient, doctor, or appointment records.
+7. **Basic Billing System**
+ Billing is limited to consultation, medicine, test fees, and discount. It does not generate professional invoices or maintain detailed payment information.
+8. **Limited Data Validation**
+ Some inputs, such as phone numbers and fees, have only basic validation and could be improved further.
 
 
 ## Future Improvements
+
+1. **Database Integration**
+   Use MySQL or SQLite to permanently store patient, doctor, appointment, and billing records.
+2. **Graphical User Interface (GUI)**
+   Develop a GUI using Tkinter, PyQt, or a web interface to make the system easier to use.
+3. **User Authentication**
+   Add secure login with different roles such as Admin, Doctor, Receptionist, and Patient.
+4. **Advanced Appointment Management**
+   Allow users to:
+    -Add custom time slots
+    -Reschedule appointments
+    -Search appointments by date or doctor
+    -Maintain appointment history
+5. **Improved Validation**
+   Add validation for:
+    -Actual calendar dates
+    -Phone numbers
+    -Positive fee values
+    -Required fields
+    -Duplicate patient information
+6. **Enhanced Billing**
+   Add:
+    -Detailed invoices
+    -Payment status
+    -Payment methods
+    -Tax calculation
+    -Printable/downloadable bills
+7. **Patient Search and Medical Records**
+   Store additional information such as medical history, diagnosis, prescriptions, and previous visits.
+8. **Reports and Analytics**
+   Generate reports such as:
+    -Number of patients
+    -Daily appointments
+    -Doctor-wise appointments
+    -Revenue reports
+9. **Data Backup and Export**
+   Provide options to export records to CSV/PDF and create regular backups.
+10.**Web/Cloud Deployment**
+   Convert the project into a web-based application so authorized users can access it from different devices.

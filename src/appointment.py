@@ -1,6 +1,6 @@
 #PATIENT MANAGEMENT SYSTEM
 
-time_slots = ("09:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "06:00 PM")
+time_slots = ("09:00 AM", "11:00 AM", "02:00 PM", "04:00 PM", "06:00 PM")   # Fixed time slots for appointment
 def show_time_slots():
     print("\nTime slots available:")
     
@@ -15,9 +15,10 @@ doctors_dict = doctors.doctors_dict
 
 
 appointment_list = []
-booked_slots = set()
+booked_slots = set() 
 appointment_counter = 1  # Counter for appointment ID generation
 
+#To book a new appointment
 def book_appointment():
     global appointment_counter, appointment_list, booked_slots
     print("\n** Book Appointment **")
@@ -29,17 +30,17 @@ def book_appointment():
 
     p_id = input("Enter patient ID: ")
     if p_id not in patients_dict:
-        print("Error!: Patient ID not found.")
+        print("Error!: Patient ID not found.")    #For incorrect patient ID
         return
 
     doc_id = input("Enter doctor ID: ")
-    if doc_id not in doctors_dict:
+    if doc_id not in doctors_dict:                #For incorrect doctor ID
         print("Error!: Doctor ID not found.")
         return
 
     def check_date(date):
         if len(date) != 10 or date[2] != '-' or date[5] != '-':
-            print("Error!: Invalid date format. Please enter date in DD-MM-YYYY format.")
+            print("Error!: Invalid date format. Please enter date in DD-MM-YYYY format.") #For incorrect date
             return False
         return True
 
@@ -73,6 +74,8 @@ def book_appointment():
     print(f"Appointment booked successfully. Appointment ID: {appointment_id}")
 
 
+#To display appointment records
+
 def view_appointments():
      global appointment_list
 
@@ -86,6 +89,10 @@ def view_appointments():
         print(f"{appt['appointment_id']} | Patient: {appt['patient_id']} | "
               f"Doctor: {appt['doctor_id']} | {appt['date']} {appt['time']} | "
               f"Status: {appt['status']}")
+
+
+
+#To cancel appointment 
 
 def cancel_appointment():
     print("\n** Cancel Appointment **")

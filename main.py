@@ -29,7 +29,7 @@ def main_menu():         # WHILE LOOP: Runs continuously until an option is chos
         print("10. Delete Patient")
         print("0. Exit")
 
-        choice = input("Enter your choice (0-9): ")
+        choice = input("Enter your choice (0-10): ")
 
         # IF/ELIF/ELSE: Directing flow based on input
         if choice == "1":

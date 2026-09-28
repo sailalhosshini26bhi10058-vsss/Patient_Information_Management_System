@@ -9,13 +9,14 @@ doctors_dict = doctors.doctors_dict
 bill_counter = 1  # Counter for bill ID generation
 bills_dict={} # Empty dictionary to store bills
 
+#To generate Bill
 def generate_bill():
     global bill_counter, bills_dict         
     print("\n** Generate Bill **")
 
-    patient_id = input("Enter patient ID: ")
+    patient_id = input("Enter patient ID: ")  #
     if patient_id not in patients_dict:
-        print("Patient ID not found.")
+        print("Patient ID not found.") #For invalid patient id
         return
 
     doc_id = input("Enter doctor ID : ") #For generating bill
@@ -27,19 +28,19 @@ def generate_bill():
     consultation_fee =float(doctors_dict[doc_id]["consultation_fee"])
 
     try:
-        medicine_fee = float(input("Enter medicine fee: "))
+        medicine_fee = float(input("Enter medicine fee: "))  #Only accepts float values
     except ValueError:
         print("Invalid amount!")
         return
     
     try:
-        discount = float(input("Enter discount (0 if none): "))
+        discount = float(input("Enter discount (0 if none): "))          #Only accepts float values
     except ValueError:
         print("Invalid amount!")
         return
 
     try:
-        test_fee = float(input("Enter test fee (0 if none): "))
+        test_fee = float(input("Enter test fee (0 if none): "))            #Only accepts float values
     except ValueError:
         print("Invalid amount!")
         return
@@ -51,7 +52,7 @@ def generate_bill():
 
     bills_dict[bill_id] = {"patient_id": patient_id, "consultation_fee": consultation_fee, "medicine_fee": medicine_fee, "discount": discount, "test_fee": test_fee, "total": total}
 
-    print(f"\nBill generated. Bill ID: {bill_id}")
+    print(f"\nBill generated. Bill ID: {bill_id}")        #Displays calculated bill
 
 
     labels = ["Consultation Fees", "Medicine Fees", "Test Fees", "Discount"]
@@ -63,6 +64,7 @@ def generate_bill():
     print(f"Total Amount: {total}")
 
 
+#To display bills
 def view_bills():
     print("\n** All Bills **")
     if len(bills_dict) == 0:

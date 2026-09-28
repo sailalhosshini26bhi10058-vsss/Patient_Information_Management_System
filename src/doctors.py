@@ -1,10 +1,10 @@
 #PATIENT MANAGEMENT SYSTEM
 
-doctors_dict={}
-doc_counter=1
+doctors_dict={}                #Empty dictionary to store dotor details
+doc_counter=1                     # For doctor ID generation
 
 def add_doc():
-    global doctors_dict, doc_counter
+    global doctors_dict, doc_counter           #Can be used outside of function
     print("\n** Add New Doctor **")
     name = input("Enter doctor name: ")
     specialization = input("Enter specialization: ")
@@ -23,7 +23,7 @@ def add_doc():
     print("Doctor added successfully. Doctor ID: ",doc_id)
     
      
-
+#To display doctor details
 def view_docs():
     print("\n** All Doctors **")
     if len(doctors_dict) == 0:
